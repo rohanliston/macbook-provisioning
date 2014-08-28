@@ -37,6 +37,7 @@
       - rsync
       - zsh
     caskroom_dir: /usr/local/caskroom
+    dotfiles_repo: git@github.com:craigmarvelley/dotfiles.git
     dotfiles_dir: /Users/craig/Code/dotfiles
     email: EMAIL_HERE
     github_username: craigmarvelley

@@ -1,51 +1,57 @@
 ---
 - hosts: all
-
   vars:
     applications:
-      - alfred
-      - boxer
-      - cord
-      - firefox
-      - google-chrome
-      - gpgtools
-      - handbrake
-      - hipchat
-      - kdiff3
-      - libreoffice
-      - limechat
-      - phpstorm
-      - mou
-      - parallels
-      - robomongo
-      - sequel-pro
-      - sonos
-      - spotify
-      - the-unarchiver
-      - transmit
-      - tunnelblick
-      - vagrant
-      - virtualbox
-      - vlc
-    application_dir: /Applications
+      - alfred                 # Advanced search utility
+      - android-studio         # Android development IDE
+      - atom                   # Text editor
+      - caffeine               # Coffee cup icon in toolbar to prevent sleep/standby
+      - charles                # Web traffic inspector
+      - cleanmymac             # Clean up unused/superfluous files
+      - colorpicker-skalacolor # Desktop colour picker
+      - dash                   # API documentation browser
+      - dropbox                # Cloud file storage
+      - filezilla              # FTP client
+      - firefox                # Web browser
+      - flash                  # For viewing Flash content
+      - flux                   # Adjusts colour temperature
+      - github                 # GitHub desktop client
+      - google-chrome          # Web browser
+      - google-drive           # Cloud storage
+      - iterm2                 # Terminal
+      - java                   # Java JRE
+      - quicklook-csv          # Nicer CSV quick-looking
+      - quicklook-json         # Nice JSON quick-looking
+      - slack                  # Team chat app
+      - sublime-text           # Text editor
+      - the-unarchiver         # Archive management tool
+      - transmission           # BitTorrent client
+      - vagrant                # Development sandboxes
+      - virtualbox             # VM provider
+      - vlc                    # Media player
+      - vlc-remote             # Control VLC vith mobile device
+      - xbmc                   # Media centre
     brews:
-      - ack
-      - chromedriver
-      - docker
-      - hub
-      - ios-webkit-debug-proxy
-      - rsync
-      - zsh
+      - ack                    # Grep-like tool
+      - ansible                # Provisioning tool
+      - git                    # Git version control
+      - go                     # Golang
+      - node                   # Node.js
+      - rbenv                  # Ruby version manager
+      - ruby-build             # Builds Rubies from source
+      - tree                   # CLI directory structure visualiser
+      - wget                   # CLI file downloader
+      - zsh                    # Z Shell (Bash alternative)
+    app_dir: {{ home_dir }}/Applications
     caskroom_dir: /usr/local/caskroom
-    dotfiles_repo: git@github.com:craigmarvelley/dotfiles.git
-    dotfiles_dir: /Users/craig/Code/dotfiles
+    dotfiles_repo: git@github.com:rohanliston/dotfiles.git
+    dotfiles_dir: {{ home_dir }}/.dotfiles
     email: EMAIL_HERE
-    github_username: craigmarvelley
-    home_dir: /Users/craig
-    name: Craig Marvelley
+    github_username: rohanliston
+    home_dir: /Users/rohan
+    name: Rohan Liston
     zsh_path: /usr/local/bin/zsh
-
   tasks:
     - include: tasks/homebrew.yml tags=homebrew
-    - include: tasks/zsh.yml tags=zsh
+    - include: tasks/zsh.yml      tags=zsh
     - include: tasks/dotfiles.yml tags=dotfiles

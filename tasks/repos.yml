@@ -1,0 +1,8 @@
+---
+- name: 'Clone repos'
+  tags: 'repos'
+  git: >
+    repo={{ item.repo }}
+    dest={{ item.dest }}
+    accept_hostkey=yes
+  with_items: repos

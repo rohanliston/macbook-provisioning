@@ -1,0 +1,44 @@
+---
+- name: 'Set horizontal workspace layout'
+  tags: 'ubuntu'
+  command: 'gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize {{ ubuntu.workspaces_horizontal }}'
+
+- name: 'Set vertical workspace layout'
+  tags: 'ubuntu'
+  command: 'gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize {{ ubuntu.workspaces_vertical }}'
+
+- name: 'Remove apport'
+  tags: 'ubuntu'
+  sudo: 'yes'
+  apt: >
+    pkg=apport
+    state=absent
+    purge=yes
+
+- name: 'Get rid of annoying avahi notifications'
+  tags: 'ubuntu'
+  sudo: 'yes'
+  lineinfile: >
+    dest=/etc/default/avahi-daemon
+    line="AVAHI_DAEMON_DETECT_LOCAL=0"
+    regexp="AVAHI_DAEMON_DETECT_LOCAL=1"
+    backrefs=yes
+
+- name: 'Change ownership of keyboard light brightness file'
+  tags: 'ubuntu'
+  file: >
+    path=/sys/class/leds/smc::kbd_backlight/brightness
+    owner={{ user_name }}
+    group={{ user_name }}
+
+- name: 'Ensure .profile sets keyboard brightness to 0 on boot'
+  tags: 'ubuntu'
+  lineinfile: >
+    dest={{ home_dir }}/.profile
+    line="echo 0 >> /sys/class/leds/smc::kbd_backlight/brightness"
+
+- name: 'Ensure .profile sets keyboard delay and repeat'
+  tags: 'ubuntu'
+  lineinfile: >
+    dest={{ home_dir }}/.profile
+    line="xset r rate 250 40"

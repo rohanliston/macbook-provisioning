@@ -1,0 +1,17 @@
+---
+- name: 'Add apt repositories'
+  tags: 'packaages'
+  sudo: 'yes'
+  apt_repository: 'repo={{ item }}'
+  with_items: apt.repositories
+
+- name: 'Install apt packages'
+  tags: 'packaages'
+  sudo: 'yes'
+  apt: >
+    update_cache=yes
+    cache_valid_time=3600
+    pkg={{ item }}
+    force=yes
+  with_items: apt.packages
+

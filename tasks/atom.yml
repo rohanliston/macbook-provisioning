@@ -1,0 +1,26 @@
+---
+- name: 'Create depot directory to contain archives'
+  tags:
+    - 'packages' 
+    - 'atom'
+  sudo: 'yes'
+  file: >
+    path=/opt/depot
+    state=directory
+
+- name: 'Download atom.io package'
+  tags:
+    - 'packages'
+    - 'atom'
+  sudo: 'yes'
+  get_url: >
+    url=https://github.com/atom/atom/releases/download/v0.132.0/atom-amd64.deb
+    dest=/opt/depot/atom-amd64.deb
+    mode=0664
+
+- name: 'Install atom.io'
+  tags:
+    - 'packages'
+    - 'atom'
+  sudo: 'yes'
+  apt: 'deb=/opt/depot/atom-amd64.deb'

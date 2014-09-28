@@ -1,0 +1,58 @@
+---
+- hosts: 'localhost'
+  connection: 'local'
+  vars:
+    ansible_galaxy_roles:
+      - 'ssilab.postgres'
+      - 'ssilab.aws-cli'
+      - 'ssilab.locales'
+      - 'ssilab.golang'
+      - 'ssilab.ubuntu-general'
+      - 'ssilab.redis'
+      - 'ssilab.mongodb'
+    apt:
+      repositories: []
+      packages:
+        - 'aptitude'         # Text-based frontend to apt.
+        - 'build-essential'  # Build tools (g++, make, etc.)
+        - 'chromium-browser' # Google web browser
+        - 'curl'             # CLI tool for transferring data
+        - 'git'              # Distributed source control
+        - 'synaptic'         # GUI frontend to apt
+        - 'irssi'            # Terminal IRC client
+        - 'terminator'       # Terminal emulator
+        - 'vagrant'          # Development VM sandboxing
+        - 'virtualbox'       # Virtual machine provider
+        - 'vim'              # Terminal text editor
+    development_dir: '{{ home_dir }}/Development'
+    dotfiles:
+      repo: 'git@github.com:rohanliston/dotfiles.git'
+      dir:  '{{ home_dir }}/.dotfiles'
+    home_dir: '/home/{{ user_name }}'
+    repos:
+      - { repo: 'git@github.com:rohanliston/qt-redis.git'                  , dest: '{{ development_dir }}/personal/qt-redis'                  }
+      - { repo: 'git@github.com:rohanliston/guisignalslot.git'             , dest: '{{ development_dir }}/personal/guisignalslot'             }
+      - { repo: 'git@github.com:rohanliston/babushka-deps.git'             , dest: '{{ development_dir }}/personal/babushka-deps'             }
+      - { repo: 'git@github.com:rohanliston/adobe-spritesheet-scripts.git' , dest: '{{ development_dir }}/personal/adobe-spritesheet-scripts' }
+      - { repo: 'git@github.com:rohanliston/html5-asteroids.git'           , dest: '{{ development_dir }}/personal/html5-asteroids'           }
+      - { repo: 'git@github.com:ssilab/ansible-postgres.git'               , dest: '{{ development_dir }}/ssil/ansible-postgres'              }
+      - { repo: 'git@github.com:ssilab/ansible-aws-cli.git'                , dest: '{{ development_dir }}/ssil/ansible-aws-cli'               }
+      - { repo: 'git@github.com:ssilab/ansible-locales.git'                , dest: '{{ development_dir }}/ssil/ansible-locales'               }
+      - { repo: 'git@github.com:ssilab/ansible-golang.git'                 , dest: '{{ development_dir }}/ssil/ansible-golang'                }
+      - { repo: 'git@github.com:ssilab/ansible-ubuntu-general.git'         , dest: '{{ development_dir }}/ssil/ansible-ubuntu-general'        }
+      - { repo: 'git@github.com:ssilab/ansible-redis.git'                  , dest: '{{ development_dir }}/ssil/ansible-redis'                 }
+      - { repo: 'git@github.com:ssilab/ansible-mongodb.git'                , dest: '{{ development_dir }}/ssil/ansible-mongodb'               }
+      - { repo: 'git@github.com:ssilab/ssil-dashboard.git'                 , dest: '{{ development_dir }}/ssil/ssil-dashboard'                }
+    user_name: 'rohan'
+    ubuntu:
+      workspaces_horizontal: 2
+      workspaces_vertical: 2
+  tasks:
+    - include: 'tasks/ansible_dependencies.yml'
+    - include: 'tasks/ubuntu.yml'
+    - include: 'tasks/packages.yml'
+    - include: 'tasks/zsh.yml'
+    - include: 'tasks/dotfiles.yml'
+    - include: 'tasks/sublime.yml'
+    - include: 'tasks/atom.yml'
+    - include: 'tasks/repos.yml'

@@ -1,0 +1,14 @@
+---
+- name: 'Install Ansible dependencies'
+  tags: 'ansible'
+  sudo: 'yes'
+  apt: >
+    pkg=python-apt
+    update_cache=yes
+    cache_valid_time=3600
+
+- name: 'Install Ansible Galaxy roles'
+  tags: 'ansible'
+  sudo: 'yes'
+  command: 'ansible-galaxy install -i {{ item }}'
+  with_items: ansible_galaxy_roles

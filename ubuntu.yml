@@ -13,17 +13,24 @@
     apt:
       repositories: []
       packages:
-        - 'aptitude'         # Text-based frontend to apt.
-        - 'build-essential'  # Build tools (g++, make, etc.)
-        - 'chromium-browser' # Google web browser
-        - 'curl'             # CLI tool for transferring data
-        - 'git'              # Distributed source control
-        - 'synaptic'         # GUI frontend to apt
-        - 'irssi'            # Terminal IRC client
-        - 'terminator'       # Terminal emulator
-        - 'vagrant'          # Development VM sandboxing
-        - 'virtualbox'       # Virtual machine provider
-        - 'vim'              # Terminal text editor
+        - 'adobe-flashplugin'             # Adobe Flash plugin for browsers
+        - 'aptitude'                      # Text-based frontend to apt.
+        - 'autogen'                       # Often required for building things from source
+        - 'build-essential'               # Build tools (g++, make, etc.)
+        - 'chromium-browser'              # Google web browser
+        - 'compizconfig-settings-manager' # Desktop environment settings tweaker
+        - 'curl'                          # CLI tool for transferring data
+        - 'dh-autoreconf'                 # Often required for building things from source
+        - 'git'                           # Distributed source control
+        - 'libsdl1.2-dev'                 # Simple Directmedia Layer 1.2
+        - 'libsdl-mixer1.2-dev'           # Audio component for SDL 1.2
+        - 'libsdl-net1.2-dev'             # Networking component for SDL 1.2
+        - 'synaptic'                      # GUI frontend to apt
+        - 'terminator'                    # Terminal emulator
+        - 'vagrant'                       # Development VM sandboxing
+        - 'virtualbox'                    # Virtual machine provider
+        - 'vim'                           # Terminal text editor
+        - 'weechat'                       # Terminal IRC client
     development_dir: '{{ home_dir }}/Development'
     dotfiles:
       repo: 'git@github.com:rohanliston/dotfiles.git'

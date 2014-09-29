@@ -1,12 +1,16 @@
 ---
-- name: 'Add apt repositories'
-  tags: 'packaages'
+- name: 'Enable apt partner repositories'
+  tags: 'packages'
   sudo: 'yes'
-  apt_repository: 'repo={{ item }}'
-  with_items: apt.repositories
+  lineinfile: >
+    dest=/etc/apt/sources.list
+    line="{{ item }}"
+  with_items:
+    - 'deb http://archive.canonical.com/ubuntu trusty partner'
+    - 'deb-src http://archive.canonical.com/ubuntu trusty partner'
 
 - name: 'Install apt packages'
-  tags: 'packaages'
+  tags: 'packages'
   sudo: 'yes'
   apt: >
     update_cache=yes

@@ -25,6 +25,8 @@
         - 'libsdl1.2-dev'                 # Simple Directmedia Layer 1.2
         - 'libsdl-mixer1.2-dev'           # Audio component for SDL 1.2
         - 'libsdl-net1.2-dev'             # Networking component for SDL 1.2
+        - 'nodejs'                        # Node.js
+        - 'npm'                           # Node Package Managerbower
         - 'synaptic'                      # GUI frontend to apt
         - 'terminator'                    # Terminal emulator
         - 'vagrant'                       # Development VM sandboxing
@@ -63,4 +65,5 @@
     - include: 'tasks/dotfiles.yml'
     - include: 'tasks/sublime.yml'
     - include: 'tasks/atom.yml'
+    - include: 'tasks/dropbox.yml'
     - include: 'tasks/repos.yml'

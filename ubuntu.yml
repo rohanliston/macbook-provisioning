@@ -15,59 +15,59 @@
       - 'ssilab.redis'
     apt:
       repositories:
-        - 'deb http://archive.canonical.com/ubuntu {{ ubuntu.release_name }} partner'     # Ubuntu partners
-        - 'deb-src http://archive.canonical.com/ubuntu {{ ubuntu.release_name }} partner' # Ubuntu partners (source code)
+        - 'deb http://archive.canonical.com/ubuntu {{ ubuntu.release_name }} partner'       # Ubuntu partners
+        - 'deb-src http://archive.canonical.com/ubuntu {{ ubuntu.release_name }} partner'   # Ubuntu partners (source code)
       packages:
-        - 'adobe-flashplugin'             # Adobe Flash plugin for browsers
-        - 'aptitude'                      # Text-based frontend to apt.
-        - 'autogen'                       # Often required for building things from source
-        - 'build-essential'               # Build tools (g++, make, etc.)
-        - 'cloc'                          # Count Lines Of Code
-        - 'compizconfig-settings-manager' # Desktop environment settings tweaker
-        - 'curl'                          # CLI tool for transferring data
-        - 'dh-autoreconf'                 # Often required for building things from source
-        - 'gimp'                          # Photoshop for neckbeards
-        - 'git'                           # Distributed source control
-        - 'google-chrome-unstable'        # Google web browser
-        - 'gprename'                      # Bulk rename utility
-        - 'htop'                          # Nicer version of 'top'
-        - 'inkscape'                      # Illustrator for neckbeards
-        - 'libsdl1.2-dev'                 # Simple Directmedia Layer 1.2
-        - 'libsdl-mixer1.2-dev'           # Audio component for SDL 1.2
-        - 'libsdl-net1.2-dev'             # Networking component for SDL 1.2
-        - 'nodejs'                        # Node.js
-        - 'npm'                           # Node Package Manager
-        - 'numlockx'                      # Enable/disable numlock from the command line
-        - 'pithos'                        # Pandora desktop client
-        - 'synaptic'                      # GUI frontend to apt
-        - 'terminator'                    # Terminal emulator
-        - 'ubuntu-wallpapers*'            # Ubuntu wallpapers from the beginning of time
-        - 'vagrant'                       # Development VM sandboxing
-        - 'virtualbox'                    # Virtual machine provider
-        - 'vim'                           # Terminal text editor
-        - 'weechat'                       # Terminal IRC client
+        - 'adobe-flashplugin'               # Adobe Flash plugin for browsers
+        - 'aptitude'                        # Text-based frontend to apt.
+        - 'autogen'                         # Often required for building things from source
+        - 'build-essential'                 # Build tools (g++, make, etc.)
+        - 'cloc'                            # Count Lines Of Code
+        - 'compizconfig-settings-manager'   # Desktop environment settings tweaker
+        - 'curl'                            # CLI tool for transferring data
+        - 'dh-autoreconf'                   # Often required for building things from source
+        - 'gimp'                            # Photoshop for neckbeards
+        - 'git'                             # Distributed source control
+        - 'google-chrome-unstable'          # Google web browser
+        - 'gprename'                        # Bulk rename utility
+        - 'htop'                            # Nicer version of 'top'
+        - 'inkscape'                        # Illustrator for neckbeards
+        - 'libsdl1.2-dev'                   # Simple Directmedia Layer 1.2
+        - 'libsdl-mixer1.2-dev'             # Audio component for SDL 1.2
+        - 'libsdl-net1.2-dev'               # Networking component for SDL 1.2
+        - 'nodejs'                          # Node.js
+        - 'npm'                             # Node Package Manager
+        - 'numlockx'                        # Enable/disable numlock from the command line
+        - 'pithos'                          # Pandora desktop client
+        - 'synaptic'                        # GUI frontend to apt
+        - 'terminator'                      # Terminal emulator
+        - 'ubuntu-wallpapers*'              # Ubuntu wallpapers from the beginning of time
+        - 'vagrant'                         # Development VM sandboxing
+        - 'virtualbox'                      # Virtual machine provider
+        - 'vim'                             # Terminal text editor
+        - 'weechat'                         # Terminal IRC client
     development_dir: '{{ home_dir }}/Development'
     dotfiles:
       repo: 'git@github.com:rohanliston/dotfiles.git'
       dir:  '{{ home_dir }}/.dotfiles'
     home_dir: '/home/{{ user_name }}'
     repos:
-      - { repo: 'git@github.com:rohanliston/adobe-spritesheet-scripts.git' , dest: '{{ development_dir }}/personal/adobe-spritesheet-scripts' }
-      - { repo: 'git@github.com:rohanliston/babushka-deps.git'             , dest: '{{ development_dir }}/personal/babushka-deps'             }
-      - { repo: 'git@github.com:rohanliston/guisignalslot.git'             , dest: '{{ development_dir }}/personal/guisignalslot'             }
-      - { repo: 'git@github.com:rohanliston/html5-asteroids.git'           , dest: '{{ development_dir }}/personal/html5-asteroids'           }
-      - { repo: 'git@github.com:rohanliston/qt-redis.git'                  , dest: '{{ development_dir }}/personal/qt-redis'                  }
-      - { repo: 'git@github.com:ssilab/ansible-aws-cli.git'                , dest: '{{ development_dir }}/ssil/ansible-aws-cli'               }
-      - { repo: 'git@github.com:ssilab/ansible-golang.git'                 , dest: '{{ development_dir }}/ssil/ansible-golang'                }
-      - { repo: 'git@github.com:ssilab/ansible-java.git'                   , dest: '{{ development_dir }}/ssil/ansible-java'                  }
-      - { repo: 'git@github.com:ssilab/ansible-locales.git'                , dest: '{{ development_dir }}/ssil/ansible-locales'               }
-      - { repo: 'git@github.com:ssilab/ansible-logrotate.git'              , dest: '{{ development_dir }}/ssil/ansible-logrotate'             }
-      - { repo: 'git@github.com:ssilab/ansible-mongodb.git'                , dest: '{{ development_dir }}/ssil/ansible-mongodb'               }
-      - { repo: 'git@github.com:ssilab/ansible-nodejs.git'                 , dest: '{{ development_dir }}/ssil/ansible-nodejs'                }
-      - { repo: 'git@github.com:ssilab/ansible-postgres.git'               , dest: '{{ development_dir }}/ssil/ansible-postgres'              }
-      - { repo: 'git@github.com:ssilab/ansible-redis.git'                  , dest: '{{ development_dir }}/ssil/ansible-redis'                 }
-      - { repo: 'git@github.com:ssilab/ansible-ubuntu-general.git'         , dest: '{{ development_dir }}/ssil/ansible-ubuntu-general'        }
-      - { repo: 'git@github.com:ssilab/ssil-dashboard.git'                 , dest: '{{ development_dir }}/ssil/ssil-dashboard'                }
+      - { repo: 'git@github.com:rohanliston/adobe-spritesheet-scripts.git', dest: '{{ development_dir }}/personal/adobe-spritesheet-scripts' }
+      - { repo: 'git@github.com:rohanliston/babushka-deps.git'            , dest: '{{ development_dir }}/personal/babushka-deps'             }
+      - { repo: 'git@github.com:rohanliston/guisignalslot.git'            , dest: '{{ development_dir }}/personal/guisignalslot'             }
+      - { repo: 'git@github.com:rohanliston/html5-asteroids.git'          , dest: '{{ development_dir }}/personal/html5-asteroids'           }
+      - { repo: 'git@github.com:rohanliston/qt-redis.git'                 , dest: '{{ development_dir }}/personal/qt-redis'                  }
+      - { repo: 'git@github.com:ssilab/ansible-aws-cli.git'               , dest: '{{ development_dir }}/ssil/ansible-aws-cli'               }
+      - { repo: 'git@github.com:ssilab/ansible-golang.git'                , dest: '{{ development_dir }}/ssil/ansible-golang'                }
+      - { repo: 'git@github.com:ssilab/ansible-java.git'                  , dest: '{{ development_dir }}/ssil/ansible-java'                  }
+      - { repo: 'git@github.com:ssilab/ansible-locales.git'               , dest: '{{ development_dir }}/ssil/ansible-locales'               }
+      - { repo: 'git@github.com:ssilab/ansible-logrotate.git'             , dest: '{{ development_dir }}/ssil/ansible-logrotate'             }
+      - { repo: 'git@github.com:ssilab/ansible-mongodb.git'               , dest: '{{ development_dir }}/ssil/ansible-mongodb'               }
+      - { repo: 'git@github.com:ssilab/ansible-nodejs.git'                , dest: '{{ development_dir }}/ssil/ansible-nodejs'                }
+      - { repo: 'git@github.com:ssilab/ansible-postgres.git'              , dest: '{{ development_dir }}/ssil/ansible-postgres'              }
+      - { repo: 'git@github.com:ssilab/ansible-redis.git'                 , dest: '{{ development_dir }}/ssil/ansible-redis'                 }
+      - { repo: 'git@github.com:ssilab/ansible-ubuntu-general.git'        , dest: '{{ development_dir }}/ssil/ansible-ubuntu-general'        }
+      - { repo: 'git@github.com:ssilab/ssil-dashboard.git'                , dest: '{{ development_dir }}/ssil/ssil-dashboard'                }
     user_name: 'rohan'
     ubuntu:
       release_name: 'utopic'

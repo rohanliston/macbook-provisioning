@@ -3,9 +3,11 @@
   tags: 'ansible'
   sudo: 'yes'
   apt: >
-    pkg=python-apt
+    pkg={{ item }}
     update_cache=yes
     cache_valid_time=3600
+  with_items:
+    - 'python-apt'
 
 - name: 'Install Ansible Galaxy roles'
   tags: 'ansible'

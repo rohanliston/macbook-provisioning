@@ -24,6 +24,14 @@
     regexp="AVAHI_DAEMON_DETECT_LOCAL=1"
     backrefs=yes
 
+- name: 'Ensure .profile sets keyboard delay and repeat'
+  tags: 'ubuntu'
+  lineinfile: >
+    dest={{ home_dir }}/.profile
+    line="xset r rate 250 40"
+
+# @TODO: Only do the following tasks on macbook - might be able to use `lshw` or `sudo dmidecode | grep -A 9 "System Information" | grep -i "macbook"`
+
 - name: 'Change ownership of keyboard light brightness file'
   tags: 'ubuntu'
   file: >
@@ -36,9 +44,3 @@
   lineinfile: >
     dest={{ home_dir }}/.profile
     line="echo 0 >> /sys/class/leds/smc::kbd_backlight/brightness"
-
-- name: 'Ensure .profile sets keyboard delay and repeat'
-  tags: 'ubuntu'
-  lineinfile: >
-    dest={{ home_dir }}/.profile
-    line="xset r rate 250 40"

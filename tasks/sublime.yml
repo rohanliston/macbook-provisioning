@@ -24,3 +24,5 @@
     - 'sublime'
   sudo: 'yes'
   apt: deb=/opt/depot/sublime-text_build-3065_amd64.deb
+
+# @TODO: Install packages, colour schemes, language preferences, etc.

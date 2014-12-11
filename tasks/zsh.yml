@@ -11,6 +11,7 @@
     - 'curl'
     - 'zsh'
 
+# @TODO: Not sure if these are necessary anymore since switching to native Ansible syntax for setting shell -----------------
 - name: 'Determine if zsh is default/current shell'
   tags: 'zsh'
   shell: 'echo $SHELL'
@@ -21,12 +22,13 @@
   sudo: 'yes'
   shell: 'sudo /bin/sh -c grep -q "/bin/zsh" /etc/shells || echo "/bin/zsh" >> /etc/shells'
   when: 'current_shell.stdout != "/bin/zsh"'
+# ---------------------------------------------------------------------------------------------------------------------------
 
 - name: 'Set zsh as default shell'
   tags: 'zsh'
   sudo: 'yes'
   user: >
-    name=rohan
+    name={{ user_name }}
     shell=/bin/zsh
 
 - name: 'Check oh-my-zsh is installed'

@@ -2,7 +2,9 @@
 - name: 'Install rcm PPA'
   tags: 'dotfiles'
   sudo: 'yes'
-  apt_repository: 'repo=ppa:martin-frost/thoughtbot-rcm'
+  apt_repository: 'repo="deb http://ppa.launchpad.net/martin-frost/thoughtbot-rcm/ubuntu trusty main"'
+  # No repo for utopic yet; replace with this line once one exists:
+  # apt_repository: 'repo=ppa:martin-frost/thoughtbot-rcm'
 
 - name: 'Install rcm for dotfiles management'
   tags: 'dotfiles'
@@ -10,6 +12,7 @@
   apt: >
     pkg=rcm
     update_cache=yes
+    force=yes
 
 - name: 'Clone dotfiles repo'
   tags: 'dotfiles'

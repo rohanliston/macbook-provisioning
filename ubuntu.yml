@@ -70,7 +70,7 @@
       - { repo: 'git@github.com:ssilab/ssil-dashboard.git'                 , dest: '{{ development_dir }}/ssil/ssil-dashboard'                }
     user_name: 'rohan'
     ubuntu:
-      release_name: 'trusty'
+      release_name: 'utopic'
       workspaces_horizontal: 2
       workspaces_vertical: 2
   tasks:

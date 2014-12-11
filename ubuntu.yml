@@ -41,6 +41,7 @@
         - 'pithos'                          # Pandora desktop client
         - 'synaptic'                        # GUI frontend to apt
         - 'terminator'                      # Terminal emulator
+        - 'tree'                            # Pretty-print directory structures
         - 'ubuntu-wallpapers*'              # Ubuntu wallpapers from the beginning of time
         - 'vagrant'                         # Development VM sandboxing
         - 'virtualbox'                      # Virtual machine provider

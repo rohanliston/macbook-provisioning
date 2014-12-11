@@ -11,7 +11,9 @@
       - 'ssilab.redis'
       - 'ssilab.mongodb'
     apt:
-      repositories: []
+      repositories:
+        - 'deb http://archive.canonical.com/ubuntu {{ ubuntu.release_name }} partner'     # Ubuntu partners
+        - 'deb-src http://archive.canonical.com/ubuntu {{ ubuntu.release_name }} partner' # Ubuntu partners (source code)
       packages:
         - 'adobe-flashplugin'             # Adobe Flash plugin for browsers
         - 'aptitude'                      # Text-based frontend to apt.

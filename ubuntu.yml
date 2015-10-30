@@ -64,6 +64,15 @@
       workspaces_horizontal: 2
       workspaces_vertical: 2
   tasks:
+    - name: 'Get Ubuntu release name'
+      tags: 'always'
+      command: 'lsb_release -cs'
+      register: 'ubuntu_release_name'
+
+    - name: 'Set Ubuntu release name as a reusable fact'
+      tags: 'always'
+      set_fact: 'ubuntu_release_name={{ ubuntu_release_name.stdout }}'
+
     - include: 'tasks/ubuntu.yml'
     - include: 'tasks/packages.yml'
     - include: 'tasks/zsh.yml'

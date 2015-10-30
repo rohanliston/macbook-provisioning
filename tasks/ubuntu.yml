@@ -1,11 +1,11 @@
 ---
 - name: 'Set horizontal workspace layout'
   tags: 'ubuntu'
-  command: 'gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize {{ ubuntu.workspaces_horizontal }}'
+  command: 'gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize {{ workspaces.horizontal }}'
 
 - name: 'Set vertical workspace layout'
   tags: 'ubuntu'
-  command: 'gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize {{ ubuntu.workspaces_vertical }}'
+  command: 'gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize {{ workspaces.vertical }}'
 
 - name: 'Remove apport'
   tags: 'ubuntu'
@@ -23,24 +23,3 @@
     line="AVAHI_DAEMON_DETECT_LOCAL=0"
     regexp="AVAHI_DAEMON_DETECT_LOCAL=1"
     backrefs=yes
-
-- name: 'Ensure .profile sets keyboard delay and repeat'
-  tags: 'ubuntu'
-  lineinfile: >
-    dest={{ home_dir }}/.profile
-    line="xset r rate 250 40"
-
-# @TODO: Only do the following tasks on macbook - might be able to use `lshw` or `sudo dmidecode | grep -A 9 "System Information" | grep -i "macbook"`
-
-- name: 'Change ownership of keyboard light brightness file'
-  tags: 'ubuntu'
-  file: >
-    path=/sys/class/leds/smc::kbd_backlight/brightness
-    owner={{ user_name }}
-    group={{ user_name }}
-
-- name: 'Ensure .profile sets keyboard brightness to 0 on boot'
-  tags: 'ubuntu'
-  lineinfile: >
-    dest={{ home_dir }}/.profile
-    line="echo 0 >> /sys/class/leds/smc::kbd_backlight/brightness"

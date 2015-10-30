@@ -67,10 +67,9 @@
       - { repo: 'git@github.com:ssilab/ansible-ubuntu-general.git'        , dest: '{{ development_dir }}/ssil/ansible-ubuntu-general'        }
       - { repo: 'git@github.com:ssilab/ssil-dashboard.git'                , dest: '{{ development_dir }}/ssil/ssil-dashboard'                }
     user_name: 'rohan'
-    ubuntu:
-      release_name: 'utopic'
-      workspaces_horizontal: 2
-      workspaces_vertical: 2
+    workspaces:
+      horizontal: 2
+      vertical: 2
   tasks:
     - name: 'Get Ubuntu release name'
       tags: 'always'

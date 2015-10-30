@@ -1,29 +1,4 @@
 ---
-- name: 'Install dependencies'
-  tags:
-   - 'packages'
-   - 'zsh'
-  sudo: 'yes'
-  apt: >
-    pkg={{ item }}
-    update_cache=yes
-  with_items:
-    - 'curl'
-    - 'zsh'
-
-# @TODO: Not sure if these are necessary anymore since switching to native Ansible syntax for setting shell -----------------
-- name: 'Determine if zsh is default/current shell'
-  tags: 'zsh'
-  shell: 'echo $SHELL'
-  register: current_shell
-
-- name: 'Enable zsh in /etc/shells'
-  tags: 'zsh'
-  sudo: 'yes'
-  shell: 'sudo /bin/sh -c grep -q "/bin/zsh" /etc/shells || echo "/bin/zsh" >> /etc/shells'
-  when: 'current_shell.stdout != "/bin/zsh"'
-# ---------------------------------------------------------------------------------------------------------------------------
-
 - name: 'Set zsh as default shell'
   tags: 'zsh'
   sudo: 'yes'
@@ -38,5 +13,8 @@
 
 - name: 'Install oh-my-zsh'
   tags: 'zsh'
-  shell: 'curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh'
+  git: >
+    repo=https://github.com/robbyrussell/oh-my-zsh.git
+    dest={{ home_dir }}/.oh-my-zsh
+    depth=1
   when: 'oh_my_zsh_installed.stat.exists == false'

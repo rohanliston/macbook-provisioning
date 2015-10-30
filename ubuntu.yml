@@ -43,12 +43,13 @@
         - 'virtualbox'                      # Virtual machine provider
         - 'vim'                             # Terminal text editor
         - 'weechat'                         # Terminal IRC client
+        - 'zsh'                             # Bash alternative
     development_dir: '{{ home_dir }}/Development'
     dotfiles:
       repo: 'git@github.com:rohanliston/dotfiles.git'
       dir:  '{{ home_dir }}/.dotfiles'
     home_dir: '/home/{{ user_name }}'
-    repos:
+    repos:  # @TODO: Just clone all github repos
       - { repo: 'git@github.com:rohanliston/adobe-spritesheet-scripts.git', dest: '{{ development_dir }}/personal/adobe-spritesheet-scripts' }
       - { repo: 'git@github.com:rohanliston/babushka-deps.git'            , dest: '{{ development_dir }}/personal/babushka-deps'             }
       - { repo: 'git@github.com:rohanliston/guisignalslot.git'            , dest: '{{ development_dir }}/personal/guisignalslot'             }

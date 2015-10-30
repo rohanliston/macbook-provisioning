@@ -1,18 +1,25 @@
 ---
-- name: 'Install rcm PPA'
-  tags: 'dotfiles'
+- name: 'Create depot directory to contain archives'
+  tags:
+    - 'packages'
+    - 'dotfiles'
   sudo: 'yes'
-  # No repo for utopic yet; replace with this line once one exists:
-  # apt_repository: 'repo=ppa:martin-frost/thoughtbot-rcm'
-  apt_repository: 'repo="deb http://ppa.launchpad.net/martin-frost/thoughtbot-rcm/ubuntu trusty main"'
+  file: >
+    path=/opt/depot
+    state=directory
 
-- name: 'Install rcm for dotfiles management'
+- name: 'Download ThoughtBot rcm'
   tags: 'dotfiles'
   sudo: 'yes'
-  apt: >
-    pkg=rcm
-    update_cache=yes
-    force=yes
+  get_url: >
+    url=https://thoughtbot.github.io/rcm/debs/rcm_1.2.3-1_all.deb
+    dest=/opt/depot
+    mode=0664
+
+- name: 'Install ThoughtBot rcm for dotfiles management'
+  tags: 'dotfiles'
+  sudo: 'yes'
+  apt: deb=/opt/depot/rcm_1.2.3-1_all.deb
 
 - name: 'Clone dotfiles repo'
   tags: 'dotfiles'

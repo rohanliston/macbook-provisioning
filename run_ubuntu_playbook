@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get install ansible
+sudo ansible-galaxy install -f ssilab.aws-cli ssilab.java ssilab.locales ssilab.logrotate ssilab.mongodb ssilab.nodejs ssilab.postgres ssilab.rabbitmq ssilab.redis ssilab.golang
+ansible-playbook -K ubuntu.yml

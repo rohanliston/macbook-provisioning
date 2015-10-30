@@ -2,17 +2,6 @@
 - hosts: 'localhost'
   connection: 'local'
   vars:
-    ansible_galaxy_roles:
-      - 'ssilab.aws-cli'
-      - 'ssilab.common'
-      - 'ssilab.golang'
-      - 'ssilab.java'
-      - 'ssilab.locales'
-      - 'ssilab.logrotate'
-      - 'ssilab.mongodb'
-      - 'ssilab.nodejs'
-      - 'ssilab.postgres'
-      - 'ssilab.redis'
     apt:
       repositories:
         - 'deb http://archive.canonical.com/ubuntu {{ ubuntu.release_name }} partner'       # Ubuntu partners
@@ -75,7 +64,6 @@
       workspaces_horizontal: 2
       workspaces_vertical: 2
   tasks:
-    - include: 'tasks/ansible_dependencies.yml'
     - include: 'tasks/ubuntu.yml'
     - include: 'tasks/packages.yml'
     - include: 'tasks/zsh.yml'

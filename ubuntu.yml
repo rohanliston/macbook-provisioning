@@ -67,9 +67,26 @@
       - { repo: 'git@github.com:ssilab/ansible-ubuntu-general.git'        , dest: '{{ development_dir }}/ssil/ansible-ubuntu-general'        }
       - { repo: 'git@github.com:ssilab/ssil-dashboard.git'                , dest: '{{ development_dir }}/ssil/ssil-dashboard'                }
     user_name: 'rohan'
-    workspaces:
-      horizontal: 2
-      vertical: 2
+    unity:
+      workspaces:
+        horizontal: 2
+        vertical: 2
+      launcher_icons:
+        - 'application://org.gnome.Nautilus.desktop'
+        - 'application://google-chrome.desktop'
+        - 'application://firefox.desktop'
+        - 'application://thunderbird.desktop'
+        - 'application://libreoffice-writer.desktop'
+        - 'application://libreoffice-calc.desktop'
+        - 'application://libreoffice-impress.desktop'
+        - 'application://ubuntu-software-center.desktop'
+        - 'application://unity-control-center.desktop'
+        - 'application://x-terminal-emulator.desktop'
+        - 'application://slack.desktop'
+        - 'application://sublime-text.desktop'
+        - 'unity://running-apps'
+        - 'unity://expo-icon'
+        - 'unity://devices'
   tasks:
     - name: 'Get Ubuntu release name'
       tags: 'always'

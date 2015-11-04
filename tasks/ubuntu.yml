@@ -1,14 +1,35 @@
 ---
 - name: 'Set horizontal workspace layout'
-  tags: 'ubuntu'
-  command: 'gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize {{ workspaces.horizontal }}'
+  tags:
+    - 'unity'
+    - 'workspaces'
+  gsettings: >
+    schema=org.compiz.core:/org/compiz/profiles/unity/plugins/core/
+    key=hsize
+    value={{ unity.workspaces.horizontal }}
 
 - name: 'Set vertical workspace layout'
-  tags: 'ubuntu'
-  command: 'gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize {{ workspaces.vertical }}'
+  tags:
+    - 'unity'
+    - 'workspaces'
+  gsettings: >
+    schema=org.compiz.core:/org/compiz/profiles/unity/plugins/core/
+    key=vsize
+    value={{ unity.workspaces.vertical }}
+
+- name: 'Set launcher pinned icons'
+  tags:
+    - 'unity'
+    - 'launcher'
+  gsettings: >
+    schema=com.canonical.Unity.Launcher
+    key=favorites
+    value="{{ unity.launcher_icons }}"
 
 - name: 'Remove apport'
-  tags: 'ubuntu'
+  tags:
+    - 'ubuntu'
+    - 'apport'
   sudo: 'yes'
   apt: >
     pkg=apport
@@ -16,7 +37,9 @@
     purge=yes
 
 - name: 'Get rid of annoying avahi notifications'
-  tags: 'ubuntu'
+  tags:
+    - 'ubuntu'
+    - 'avahi'
   sudo: 'yes'
   lineinfile: >
     dest=/etc/default/avahi-daemon

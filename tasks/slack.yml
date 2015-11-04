@@ -1,0 +1,25 @@
+---
+- name: 'Create depot directory to contain archives'
+  tags:
+    - 'packages' 
+    - 'slack'
+  sudo: 'yes'
+  file: >
+    path=/opt/depot
+    state=directory
+
+- name: 'Download Slack deb'
+  tags:
+    - 'packages'
+    - 'slack'
+  sudo: 'yes'
+  get_url: >
+    url=https://slack-ssb-updates.global.ssl.fastly.net/linux_releases/slack-desktop-1.2.5-amd64.deb
+    dest=/opt/depot
+
+- name: 'Install slack'
+  tags:
+    - 'packages'
+    - 'slack'
+  sudo: 'yes'
+  apt: 'deb=/opt/depot/slack-desktop-1.2.5-amd64.deb'

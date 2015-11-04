@@ -85,3 +85,4 @@
     - include: 'tasks/zsh.yml'
     - include: 'tasks/dotfiles.yml'
     - include: 'tasks/repos.yml'
+    - include: 'tasks/slack.yml'

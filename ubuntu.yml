@@ -95,3 +95,4 @@
     - include: 'tasks/dotfiles.yml'
     - include: 'tasks/repos.yml'
     - include: 'tasks/slack.yml'
+    - include: 'tasks/thunderbird.yml'

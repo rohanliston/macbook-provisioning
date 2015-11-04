@@ -4,11 +4,11 @@
   vars:
     apt:
       repositories:
-        - 'deb http://archive.canonical.com/ubuntu {{ ubuntu_release_name }} partner'   # Ubuntu partners
-        - 'deb http://dl.google.com/linux/chrome/deb/ stable main'                      # Google Chrome
-        - 'ppa:webupd8team/sublime-text-3'                                              # Sublime Text 3
-        - 'ppa:webupd8team/atom'                                                        # Atom
-        - 'deb http://linux.dropbox.com/ubuntu {{ ubuntu_release_name }} main'          # Dropbox
+        - 'deb http://archive.canonical.com/ubuntu {{ ansible_distribution_release }} partner'   # Ubuntu partners
+        - 'deb http://dl.google.com/linux/chrome/deb/ stable main'                               # Google Chrome
+        - 'ppa:webupd8team/sublime-text-3'                                                       # Sublime Text 3
+        - 'ppa:webupd8team/atom'                                                                 # Atom
+        - 'deb http://linux.dropbox.com/ubuntu {{ ansible_distribution_release }} main'          # Dropbox
       packages:
         - 'adobe-flashplugin'               # Adobe Flash plugin for browsers
         - 'aptitude'                        # Text-based frontend to apt

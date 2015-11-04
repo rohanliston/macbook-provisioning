@@ -43,6 +43,7 @@
         - 'virtualbox'                      # Virtual machine provider
         - 'vim'                             # Terminal text editor
         - 'weechat'                         # Terminal IRC client
+        - 'xclip'                           # Command-line interface to X clipboard
         - 'zsh'                             # Bash alternative
     development_dir: '{{ home_dir }}/Development'
     dotfiles:

@@ -67,7 +67,10 @@
       - { repo: 'git@github.com:ssilab/ansible-redis.git'                 , dest: '{{ development_dir }}/ssil/ansible-redis'                 }
       - { repo: 'git@github.com:ssilab/ansible-ubuntu-general.git'        , dest: '{{ development_dir }}/ssil/ansible-ubuntu-general'        }
       - { repo: 'git@github.com:ssilab/ssil-dashboard.git'                , dest: '{{ development_dir }}/ssil/ssil-dashboard'                }
-    user_name: 'rohan'
+    ruby:
+      installed_versions:
+        - '2.2.3'
+      global_version: '2.2.3'
     unity:
       workspaces:
         horizontal: 2
@@ -88,6 +91,7 @@
         - 'unity://running-apps'
         - 'unity://expo-icon'
         - 'unity://devices'
+    user_name: 'rohan'
   tasks:
     - include: 'tasks/ubuntu.yml'
     - include: 'tasks/packages.yml'
@@ -96,3 +100,4 @@
     - include: 'tasks/repos.yml'
     - include: 'tasks/slack.yml'
     - include: 'tasks/thunderbird.yml'
+    - include: 'tasks/ruby.yml'

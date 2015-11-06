@@ -1,0 +1,48 @@
+---
+- name: 'Ruby --> Install rbenv'
+  tags: 'ruby'
+  git: >
+    repo=https://github.com/sstephenson/rbenv
+    dest={{ home_dir }}/.rbenv
+    accept_hostkey=yes
+
+- name: 'Ruby --> Ensure rbenv is in $PATH'
+  tags: 'ruby'
+  lineinfile: >
+    dest={{ home_dir }}/.zshrc
+    state=present
+    line="export PATH=$PATH:$HOME/.rbenv/bin"
+
+- name: 'Ruby --> Ensure ''rbenv init'' is called'
+  tags: 'ruby'
+  lineinfile: >
+    dest={{ home_dir }}/.zshrc
+    state=present
+    line="eval \"$(rbenv init - zsh)\""
+
+- name: 'Ruby --> Install ruby-build dependencies'
+  tags: 'ruby'
+  sudo: 'yes'
+  apt: >
+    pkg=libreadline-dev
+    state=present
+
+- name: 'Ruby --> Install ruby-build'
+  tags: 'ruby'
+  git: >
+    repo=https://github.com/sstephenson/ruby-build.git
+    dest={{ home_dir }}/.rbenv/plugins/ruby-build
+    accept_hostkey=yes
+
+- name: 'Ruby --> Install Ruby versions'
+  tags: 'ruby'
+  command: 'rbenv install --skip-existing {{ item }}'
+  with_items: 'ruby.installed_versions'
+
+- name: 'Ruby --> Set global Ruby version'
+  tags: 'ruby'
+  command: 'rbenv global {{ ruby.global_version }}'
+
+- name: 'Ruby --> Rehash rbenv'
+  tags: 'ruby'
+  command: 'rbenv rehash'

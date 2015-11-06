@@ -1,17 +1,17 @@
 ---
-- name: 'Set zsh as default shell'
+- name: 'ZSH --> Set zsh as default shell'
   tags: 'zsh'
   sudo: 'yes'
   user: >
     name={{ user_name }}
     shell=/bin/zsh
 
-- name: 'Check oh-my-zsh is installed'
+- name: 'ZSH --> Check oh-my-zsh is installed'
   tags: 'zsh'
   stat: 'path={{ home_dir }}/.oh-my-zsh'
   register: oh_my_zsh_installed
 
-- name: 'Install oh-my-zsh'
+- name: 'ZSH --> Install oh-my-zsh'
   tags: 'zsh'
   git: >
     repo=https://github.com/robbyrussell/oh-my-zsh.git

@@ -1,7 +1,7 @@
 ---
-- name: 'Clone Thunderbird config to ~/.thunderbird'
+- name: 'Thunderbird --> Clone Thunderbird config to ~/.thunderbird'
   tags: 'thunderbird'
   git: >
     repo=git@bitbucket.org:/rliston/thunderbird-config.git
-    dest=/home/{{ user_name }}/.thunderbird
+    dest={{ home_dir }}/.thunderbird
     accept_hostkey=yes

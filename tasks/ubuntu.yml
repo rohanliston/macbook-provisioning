@@ -1,6 +1,7 @@
 ---
-- name: 'Set horizontal workspace layout'
+- name: 'Ubuntu --> Set horizontal workspace layout'
   tags:
+    - 'ubuntu'
     - 'unity'
     - 'workspaces'
   gsettings: >
@@ -8,8 +9,9 @@
     key=hsize
     value={{ unity.workspaces.horizontal }}
 
-- name: 'Set vertical workspace layout'
+- name: 'Ubuntu --> Set vertical workspace layout'
   tags:
+    - 'ubuntu'
     - 'unity'
     - 'workspaces'
   gsettings: >
@@ -17,8 +19,9 @@
     key=vsize
     value={{ unity.workspaces.vertical }}
 
-- name: 'Set launcher pinned icons'
+- name: 'Ubuntu --> Set launcher pinned icons'
   tags:
+    - 'ubuntu'
     - 'unity'
     - 'launcher'
   gsettings: >
@@ -26,7 +29,7 @@
     key=favorites
     value="{{ unity.launcher_icons }}"
 
-- name: 'Remove apport'
+- name: 'Ubuntu --> Remove apport'
   tags:
     - 'ubuntu'
     - 'apport'
@@ -36,7 +39,7 @@
     state=absent
     purge=yes
 
-- name: 'Get rid of annoying avahi notifications'
+- name: 'Ubuntu --> Get rid of annoying avahi notifications'
   tags:
     - 'ubuntu'
     - 'avahi'

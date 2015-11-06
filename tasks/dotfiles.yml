@@ -1,5 +1,5 @@
 ---
-- name: 'Create depot directory to contain archives'
+- name: 'Dotfiles --> Create depot directory to contain archives'
   tags:
     - 'packages'
     - 'dotfiles'
@@ -8,7 +8,7 @@
     path=/opt/depot
     state=directory
 
-- name: 'Download ThoughtBot rcm'
+- name: 'Dotfiles --> Download ThoughtBot rcm'
   tags: 'dotfiles'
   sudo: 'yes'
   get_url: >
@@ -16,18 +16,18 @@
     dest=/opt/depot
     mode=0664
 
-- name: 'Install ThoughtBot rcm for dotfiles management'
+- name: 'Dotfiles --> Install ThoughtBot rcm for dotfiles management'
   tags: 'dotfiles'
   sudo: 'yes'
   apt: deb=/opt/depot/rcm_1.2.3-1_all.deb
 
-- name: 'Clone dotfiles repo'
+- name: 'Dotfiles --> Clone dotfiles repo'
   tags: 'dotfiles'
   git: >
     repo={{ dotfiles.repo }}
     dest={{ dotfiles.dir }}
     accept_hostkey=yes
 
-- name: 'Apply dotfiles'
+- name: 'Dotfiles --> Apply dotfiles'
   tags: 'dotfiles'
   command: 'rcup -f -d {{ dotfiles.dir }}'

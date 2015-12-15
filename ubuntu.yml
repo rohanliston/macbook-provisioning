@@ -29,11 +29,16 @@
         - 'libsdl1.2-dev'                   # Simple Directmedia Layer 1.2
         - 'libsdl-mixer1.2-dev'             # Audio component for SDL 1.2
         - 'libsdl-net1.2-dev'               # Networking component for SDL 1.2
+        - 'ncdu'                            # Terminal-based disk treemap viewer
         - 'nodejs'                          # Node.js
         - 'npm'                             # Node Package Manager
         - 'numlockx'                        # Enable/disable numlock from the command line
+        - 'p7zip-full'                      # 7zip
+        - 'p7zip-rar'                       # 7zip RAR support
         - 'pithos'                          # Pandora desktop client
+        - 'python-dev'                      # Python headers/lib
         - 'python-gpgme'                    # Binary verification for Dropbox
+        - 'python-pip'                      # Python package manager
         - 'synaptic'                        # GUI frontend to apt
         - 'sublime-text-installer'          # Awesome text editor
         - 'terminator'                      # Terminal emulator

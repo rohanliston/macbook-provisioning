@@ -36,13 +36,13 @@
 
 - name: 'Ruby --> Install Ruby versions'
   tags: 'ruby'
-  command: 'rbenv install --skip-existing {{ item }}'
+  command: '{{ home_dir }}/.rbenv/bin/rbenv install --skip-existing {{ item }}'
   with_items: 'ruby.installed_versions'
 
 - name: 'Ruby --> Set global Ruby version'
   tags: 'ruby'
-  command: 'rbenv global {{ ruby.global_version }}'
+  command: '{{ home_dir }}/.rbenv/bin/rbenv global {{ ruby.global_version }}'
 
 - name: 'Ruby --> Rehash rbenv'
   tags: 'ruby'
-  command: 'rbenv rehash'
+  command: '{{ home_dir }}/.rbenv/bin/rbenv rehash'

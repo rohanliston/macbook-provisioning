@@ -39,6 +39,7 @@
         - 'python-dev'                      # Python headers/lib
         - 'python-gpgme'                    # Binary verification for Dropbox
         - 'python-pip'                      # Python package manager
+        - 'python3-pip'                     # Python3 package manager
         - 'synaptic'                        # GUI frontend to apt
         - 'sublime-text-installer'          # Awesome text editor
         - 'terminator'                      # Terminal emulator
